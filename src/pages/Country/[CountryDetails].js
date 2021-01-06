@@ -87,8 +87,20 @@ const CountryDetails = ({ countryData }) => {
     </Layout>
 }
 export default CountryDetails;
+export const getStaticPaths   = async () => {
+    const res = await fetch("https://restcountries.eu/rest/v2/all");
+    const countries = await res.json();
+    const paths = countries.map((country)=> ({
+        params:{id:country.alpha3Code},
+    }
+    ))
+    return{
+        paths,
+        fallback:false
+    }
+}
 // WhenEver We go to the Page, if we need to get the data in the server before render it
-export const getServerSideProps = async ({ params }) => {
+export const getStaticProps = async ({ params }) => {
     // Below Console will print in the terminal
     console.log("Params", params);
     // const result = await fetch(`https://restcountries.eu/rest/v2/alpha/${params.CountryDetails}`);
