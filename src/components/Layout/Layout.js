@@ -21,6 +21,11 @@ const Layout = ({ children, title = "World Ranks" }) => {
             <Head>
                 <title>{title}</title>
                 <link rel="icon" href="/favicon.ico" />
+                <meta charSet="utf-8" />
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <meta name="description" content="Meta description content goes here." />
+                <meta property="og:title" content="My page title" key="title" />
+                <meta property="og:description" content="My page title" key="title" />
             </Head>
             <div>
             <header className={styles.header}>

@@ -2,10 +2,13 @@ import { StylesProvider } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import styles from './Country.module.css';
+import CountryDetailsAPI from '../../services/countrydetails'
 
 const getCountry = async (id) => {
-    const result = await fetch(`https://restcountries.eu/rest/v2/alpha/${id}`);
-    const country = await result.json();
+    // const result = await fetch(`https://restcountries.eu/rest/v2/alpha/${id}`);
+    const country = await CountryDetailsAPI.getdetails(id);
+    // console.log("CounrtyDeatils",result1);
+    // const country = await result.json();
     return country;
 
 }
